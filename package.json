@@ -26,9 +26,17 @@
     "grunt-concurrent": "~0.4.0",
     "load-grunt-tasks": "~0.2.0",
     "time-grunt": "~0.2.0",
-    "jshint-stylish": "~0.1.3"
+    "jshint-stylish": "~0.1.3",
+    "grunt-script-link-tags": "*"
   },
   "engines": {
     "node": ">=0.8.0"
-  }
+  },
+  "jsFilesInBuild": [
+    "app/scripts/app.js",
+    "app/scripts/entities/{,**/}*.js",
+    "app/scripts/controllers/{,**/}*.js",
+    "app/scripts/views/{,**/}*.js",
+    "app/scripts/modules/{,**/}*.js"
+  ]
 }

@@ -17,6 +17,7 @@ module.exports = function (grunt) {
 
     // Define the configuration for all the tasks
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
         // Project settings
         yeoman: {
@@ -28,8 +29,8 @@ module.exports = function (grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint'],
+                files: ['<%= yeoman.app %>/scripts/{,**/}*.js', 'package.json'],
+                tasks: ['tags'],
                 options: {
                     livereload: true
                 }
@@ -58,6 +59,18 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
+            }
+        },
+
+        tags: {
+            indexJS: {
+                options: {
+                    scriptTemplate: '    <script type="text/javascript" src="{{ path }}"></script>',
+                    openTag: '    <!-- Start Javascript Tags -->',
+                    closeTag: '    <!-- End Javascript Tags -->'
+                },
+                src: '<%= pkg.jsFilesInBuild %>',
+                dest: '<%= yeoman.app %>/index.html'
             }
         },
 
@@ -120,7 +133,7 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                '<%= yeoman.app %>/scripts/{,**/}*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]

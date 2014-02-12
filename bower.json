@@ -2,9 +2,20 @@
   "name": "admin-test",
   "private": true,
   "dependencies": {
-    "sass-bootstrap": "~3.0.0",
-    "modernizr": "~2.6.2",
-    "jquery": "~1.10.2"
+    "marionette": "~1.6.2"
   },
-  "devDependencies": {}
+  "version": "0.0.0",
+  "homepage": "https://github.com/kcent-hg/Admin-POC",
+  "authors": [
+    "kcent-hg <kristi.centinaro@haygroup.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
 }

@@ -37,29 +37,7 @@
                 <h3 class="text-muted">admin test</h3>
             </div>
 
-            <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-                    <h4>Sass with Compass</h4>
-                    <p>Compass is an open-source CSS Authoring Framework that uses Sass.</p>
-
-
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-                    <h4>Modernizr</h4>
-                    <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
-                </div>
-            </div>
+            <div id="main-content-region"></div>
 
             <div class="footer">
                 <p>♥ from the Yeoman team</p>
@@ -67,22 +45,20 @@
 
         </div>
 
+        <!-- TEMPLATES -->
+        <script type="text/template" id="example-base-view">
+            <h1>Things!</h1>
+        </script>
+
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/backbone/backbone-min.js"></script>
+        <script src="bower_components/marionette/lib/backbone.marionette.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
 
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/sass-bootstrap/js/affix.js"></script>
@@ -100,6 +76,17 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <!-- Start Javascript Tags -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/entities/_base.js"></script>
+    <script type="text/javascript" src="scripts/entities/parameters.js"></script>
+    <script type="text/javascript" src="scripts/entities/profile.js"></script>
+    <script type="text/javascript" src="scripts/controllers/_base.js"></script>
+    <script type="text/javascript" src="scripts/views/_base.js"></script>
+    <script type="text/javascript" src="scripts/modules/example/example-module.js"></script>
+    <script type="text/javascript" src="scripts/modules/example/show/show_controller.js"></script>
+    <script type="text/javascript" src="scripts/modules/example/show/show_view.js"></script>
+    <!-- End Javascript Tags -->
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
