@@ -6,7 +6,7 @@ console.log('\'Allo \'Allo!');
 
         window.App.start();
 
-        App.execute('example:show');
+        App.execute('example:form:show');
     });
 
 

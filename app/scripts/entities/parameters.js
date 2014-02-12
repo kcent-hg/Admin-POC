@@ -40,10 +40,12 @@
             }
         ];
 
+        Entities.Parameter = Backbone.Model.extend();
+
         // in the wild, this call "SHOULD" be something 
         // we can base off the calling model's url.
         // for example: this.urlRoot + '/parameters'
-        Entities.Parameters = Backbone.Model.extend({
+        Entities.Parameters = Backbone.Collection.extend({
 
             initialize: function(options) {
 
@@ -59,7 +61,8 @@
 
             // fake datas!
             fetch: function() {
-                return sampleParamData;
+                this.add(sampleParamData);
+                console.log('fake datas fetched!');
             }
 
         });

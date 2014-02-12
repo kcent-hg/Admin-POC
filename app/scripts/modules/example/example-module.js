@@ -9,20 +9,20 @@
         // });
 
         var API = {
-            show: function (options) {
-                new Example.Show.Controller({
+            form: function (options) {
+                new Example.Form.Controller({
                     region: App.getRegion('mainContent')
                 });
             }
         };
 
         App.addInitializer(function () {
-            // new OnboardingApp.Router({
+            // new Example.Router({
             //     controller: API
             // });
 
-            App.commands.setHandler('example:show', function(options) {
-                API.show(options);
+            App.commands.setHandler('example:form:show', function(options) {
+                API.form(options);
             });
         });
     });

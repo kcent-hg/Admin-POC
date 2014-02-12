@@ -38,13 +38,20 @@
         // We extend the Model to apply a 'getParameters' method to any model in the app.
         // see _base.js.
         Entities.Profile = Entities.Model.extend({
+            url: 'http://my-test-url.com/thingsAPI',
 
             // could also put this on a base model 
             // see entities/_base.js for info.
-            getParameters: function() {
-                return App.request('entities:parameters', {
-                    urlRoot: 'http://my-test-url.com/thingsAPI'
+            parameters: function() {
+                var parameters = App.request('entities:parameters', {
+                    urlRoot: this.url
                 });
+
+                return parameters;
+            },
+
+            fetch: function() {
+                this.set(sampleProfileData);
             }
         });
 

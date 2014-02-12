@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>admin test</title>
+        <title>admin proof of concept</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -34,7 +34,7 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <h3 class="text-muted">admin test</h3>
+                <h3 class="text-muted">admin proof of concept</h3>
             </div>
 
             <div id="main-content-region"></div>
@@ -54,6 +54,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/backbone/backbone-min.js"></script>
         <script src="bower_components/marionette/lib/backbone.marionette.min.js"></script>
@@ -78,14 +79,17 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <!-- Start Javascript Tags -->
     <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/templates.js"></script>
+    <script type="text/javascript" src="scripts/config/marionette.render.js"></script>
     <script type="text/javascript" src="scripts/entities/_base.js"></script>
     <script type="text/javascript" src="scripts/entities/parameters.js"></script>
     <script type="text/javascript" src="scripts/entities/profile.js"></script>
     <script type="text/javascript" src="scripts/controllers/_base.js"></script>
     <script type="text/javascript" src="scripts/views/_base.js"></script>
+    <script type="text/javascript" src="scripts/views/form.js"></script>
     <script type="text/javascript" src="scripts/modules/example/example-module.js"></script>
-    <script type="text/javascript" src="scripts/modules/example/show/show_controller.js"></script>
-    <script type="text/javascript" src="scripts/modules/example/show/show_view.js"></script>
+    <script type="text/javascript" src="scripts/modules/example/form/form_controller.js"></script>
+    <script type="text/javascript" src="scripts/modules/example/form/form_view.js"></script>
     <!-- End Javascript Tags -->
         <script src="scripts/main.js"></script>
         <!-- endbuild -->

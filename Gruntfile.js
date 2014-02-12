@@ -35,6 +35,10 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             },
+            handlebars: {
+                files: ['<%= yeoman.app %>/templates/{,**/}*.hbs'],
+                tasks: ['handlebars:compile']
+            },
             jstest: {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['test:watch']
@@ -71,6 +75,25 @@ module.exports = function (grunt) {
                 },
                 src: '<%= pkg.jsFilesInBuild %>',
                 dest: '<%= yeoman.app %>/index.html'
+            }
+        },
+
+
+        handlebars: {
+            compile: {
+                options: {
+                    namespace: 'JST',
+                    partialsUseNamespace: true,
+                    processName: function(filePath) {
+                        var relPath = filePath.split('app/'),
+                        name = relPath[relPath.length - 1];
+
+                        return name;
+                    }
+                },
+                files: {
+                    '<%= yeoman.app %>/scripts/templates.js': '<%= yeoman.app %>/templates/{,*/}*.hbs',
+                }
             }
         },
 
@@ -375,6 +398,7 @@ module.exports = function (grunt) {
             'concurrent:server',
             'autoprefixer',
             'connect:livereload',
+            'handlebars:compile',
             'watch'
         ]);
     });
@@ -401,6 +425,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'handlebars:compile',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',

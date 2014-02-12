@@ -1,14 +1,15 @@
 (function() {
-    App.module('Example.Show', function (Show, App, Backbone, Marionette, $, _) {
+    App.module('Example.Form', function (Form, App, Backbone, Marionette, $, _) {
 
-        Show.Controller = App.Controllers.Show.extend({
+        Form.Controller = App.Controllers.Base.extend({
 
             initialize: function(options) {
                 this.region = options.region;
-                this.View = Show.View;
+                this.View = Form.View;
                 this.entity = App.request('entities:profile');
 
                 this.showBaseView();
+                
             },
 
             // these two methods are good candidates for scaffolding
