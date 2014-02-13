@@ -16,9 +16,9 @@
             template: 'components/form/input',
 
             type: 'text',
-                       
+
             triggers: {
-                'change input': 'input:update'
+                'change input': 'update'
             }
         });
 

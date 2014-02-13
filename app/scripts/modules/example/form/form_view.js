@@ -4,10 +4,8 @@
         Form.View = App.Views.Form.extend({
             template: 'example/form',
 
-            formViewContainer: '.example-form-region',
-
             regions: {
-                testRegion: '.test'
+                testRegion: '.example-form-region'
             },
 
             initialize: function(options) {
@@ -21,7 +19,7 @@
                 // but we're using fake data.
                 this.parameters.fetch();
 
-                this.buildForm();
+                this.buildForm(this.testRegion);
             }
         });
 
