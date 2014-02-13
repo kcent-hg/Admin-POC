@@ -37,6 +37,18 @@
                 source: '/endpoint?sourceType=GRADESET&clientId={{clientId}}',
                 required: true,
                 dependencies: ['clientId']
+            },
+            {
+                key: 'firstName',
+                label: 'First Name',
+                type: 'string',
+                systemGenerated: false,
+                hidden: false,
+                regex: null,
+                fieldType: 'text',
+                source: null,
+                required: true,
+                dependencies: []
             }
         ];
 
@@ -46,6 +58,7 @@
         // we can base off the calling model's url.
         // for example: this.urlRoot + '/parameters'
         Entities.Parameters = Backbone.Collection.extend({
+            model: Entities.Parameter,
 
             initialize: function(options) {
 

@@ -6,6 +6,10 @@
 
             formViewContainer: '.example-form-region',
 
+            regions: {
+                testRegion: '.test'
+            },
+
             initialize: function(options) {
 
                 this.parameters = this.model.parameters();

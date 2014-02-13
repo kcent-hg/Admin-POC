@@ -1,0 +1,6 @@
+{{#if label }}
+    <label for="input-{{name}}">{{label}}</label>
+{{/if}}
+<input id="input-{{name}}" type="{{type}}" name="{{name}}" value="{{value}}" 
+    {{#if selected}}selected="selected" {{/if}}
+    class="form-control {{controlClassName}}" />

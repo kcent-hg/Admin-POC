@@ -2,6 +2,7 @@
     App.module('Views', function (Views, App, Backbone, Marionette, $, _) {
 
         // For slicing `arguments` in functions
+        // (yoinked from Marionette source code)
         var protoSlice = Array.prototype.slice;
         function slice(args) {
             return protoSlice.call(args);
@@ -9,17 +10,26 @@
 
 
         Views.Form = App.Views.Layout.extend({
+
+            // this is called before initialize.
             constructor: function() {
-                // we want to do all our custom stuff AFTER 
-                // marionette does it's default layout stuff
-                Marionette.Layout.prototype.constructor.apply(this, slice(arguments));
+                this.regions = this.regions || {};
 
                 if(this.formViewContainer) {
                     this.regions = _.extend(this.regions, {
                         formViewContainer: this.formViewContainer
                     });
                 }
+
+                // call default Marionette Layout constructor function 
+                // now that we're done messing with it
+                Marionette.Layout.prototype.constructor.apply(this, slice(arguments));
+
             },
+
+            tagName: 'form',
+            className: 'form',
+
             // array of strings that represent form field names
             requiredFields: [],
 
@@ -31,15 +41,41 @@
             },
 
             // 
-            processParameters: function(paramObject) {
+            buildViewsFromParameters: function() {
+                var output = [];
+                var formData = this.model.get('data');
+
                 if(!this.parameters) {
                     $.error('no parameters found!');
                     return;
                 }
+
+                this.parameters.each(function(model, idx, collection) {
+                    var fieldType = model.get('fieldType');
+                    var key = model.get('key');
+                    var view = App.request('form:component:view', fieldType, {
+                        model: model,
+                        name: key,
+                        value: formData[key]
+                    });
+
+                    if(view) {
+                        output.push(view);
+                    }
+                });
+
+                return output;
             },
 
             buildForm: function() {
-                this.processParameters();
+                var region = this.formViewContainer;
+
+                this.fieldViews = this.buildViewsFromParameters();
+
+                _.each(this.fieldViews, function(view) {
+                    view.render();
+                    $(region.el).append(view.el);
+                });
             }
         });
 

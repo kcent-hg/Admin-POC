@@ -8,6 +8,8 @@
                 this.View = Form.View;
                 this.entity = App.request('entities:profile');
 
+                // would be wrapped in a promise, but using fake data
+                this.entity.fetch();
                 this.showBaseView();
                 
             },

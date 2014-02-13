@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                 }
             },
             handlebars: {
-                files: ['<%= yeoman.app %>/templates/{,**/}*.hbs'],
+                files: ['<%= yeoman.app %>/templates/{,**/**}*.hbs'],
                 tasks: ['handlebars:compile']
             },
             jstest: {
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    '<%= yeoman.app %>/scripts/templates.js': '<%= yeoman.app %>/templates/{,*/}*.hbs',
+                    '<%= yeoman.app %>/scripts/templates.js': '<%= yeoman.app %>/templates/{,**/**}*.hbs',
                 }
             }
         },
