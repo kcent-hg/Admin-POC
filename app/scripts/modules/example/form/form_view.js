@@ -19,7 +19,7 @@
                 // but we're using fake data.
                 this.parameters.fetch();
 
-                this.buildForm(this.testRegion);
+                this.renderForm(this.testRegion);
             }
         });
 

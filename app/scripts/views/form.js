@@ -10,16 +10,6 @@
 
 
         Views.Form = App.Views.Layout.extend({
-
-            // this is called before initialize.
-            constructor: function() {
-
-                // call default Marionette Layout constructor function 
-                // now that we're done messing with it
-                Marionette.Layout.prototype.constructor.apply(this, slice(arguments));
-
-            },
-
             tagName: 'form',
 
             // array of strings that represent form field names
@@ -59,7 +49,7 @@
                 return output;
             },
 
-            buildForm: function(region) {
+            renderForm: function(region) {
                 var that = this;
                 var $region;
                 
